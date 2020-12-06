@@ -18,6 +18,8 @@ components:
     env:
       - value: auto
         name: GO111MODULE
+  - type: chePlugin
+    reference: 'https://gist.githubusercontent.com/sunix/eb86fdf6802afbfb4de059ed19f08d37/raw/41515915211723ca3c740d28263d7b8a87e0a8b6/meta.yaml'
 commands:
   - name: day-01-solution
     actions:
@@ -37,3 +39,9 @@ commands:
         component: tools
         workdir: '${CHE_PROJECTS_ROOT}/advent-of-code-2020/day-03'
         command: go run day-03.go
+  - name: day-04-solution-rust
+    actions:
+      - type: exec
+        component: tools
+        workdir: '${CHE_PROJECTS_ROOT}/advent-of-code-2020/day-04'
+        command: rustc day-04.rs && ./day-04 && rm ./day-04
